@@ -1,0 +1,11 @@
+.upload-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
+
+#pdf-canvas {
+  width: 300px;
+  height: auto;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <div class="popup" id="profile-window">
+      <button class="popup-close icon-button" onclick="closePopup()">
+        <i class="fas fa-times"></i>
+      </button>
+      {% set user=False %}
+      {% include "profile.html" %}
+    </div>
+
+
+    <div id="users-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Member Since</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Last Active</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td data-label="Member Since">{{ user.created_on | datetime }}</td>
+            <td data-label="Full Name">{{ user.name }}</td>
+            <td data-label="Email">{{ user.username }}</td>
+            <td data-label="Last Active">{{ user.last_active | datetime }}</td>
+            <td>
+              <form method="POST" action="/status">
+                <input type="hidden" name="username" value="{{ user.username }}">
+                <input type="hidden" name="status" value="{{ user.status }}">
+                {% if user.status == 1 %}
+                <button class="icon-button" type="submit" title="Disable" style="color: lightgreen">
+                  <i class="fas fa-circle"></i>
+                </button>
+                {% else %}
+                <button class="icon-button" type="submit" title="Enable" style="color: red;">
+                  <i class="fas fa-circle"></i>
+                </button>
+                {% endif %}
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+
+          <tr>
+            <form method="POST" action="/register">
+              <td></td>
+              <td data-label="Full Name" class="form-group">
+                <input type="text" name="name" placeholder="Full Name" required/>
+              </td>
+              <td data-label="Email" class="form-group">
+                <input type="text" name="email" placeholder="Email" required />
+              </td>
+              <td></td>
+              <td>
+                <button class="icon-button" type="submit" title="Add User">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+
+  </body>
+</html>
+

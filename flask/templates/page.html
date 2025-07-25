@@ -1,0 +1,22 @@
+<div class="page-header">
+  <button class="page-button" id="prevPageBtn" onclick="flipPage('prev')">← Prev</button>
+
+  <div id="header-container">
+    <div id="page">
+      <input type="text" id="pageInput" inputmode="numeric" pattern="[0-9]*" autocomplete="off"/>
+      <span>of</span>
+      <span id="pageCount"></span>
+    </div>
+
+    <div class="v-divider"></div>
+
+    <div id="play">
+      <button class="page-button" id="readPageBtn">▶</button>
+      <button class="page-button" id="pausePageBtn">⏸</button>
+      <button class="page-button" id="stopPageBtn">⏹</button>
+    </div>
+  </div>
+
+  <button class="page-button" id="nextPageBtn" onclick="flipPage('next')">Next →</button>
+</div>
+

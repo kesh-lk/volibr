@@ -1,0 +1,66 @@
+services:
+  # DEV
+  flask:
+    build: ./flask
+    networks: ["netdev"]
+    expose: ["5000"]
+    volumes:
+      - "./flask:/app"
+      - "./storage:/storage"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    command: "flask run --host=0.0.0.0 --port=5000"
+    profiles: ["dev"]
+  
+  piper:
+    build: ./piper
+    networks: ["netdev"]
+    expose: ["5000"]
+    command: "python3 -m piper.http_server -m en_US-lessac-medium"
+    profiles: ["dev"]
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
+    networks: ["netdev"]
+    profiles: ["dev"]
+   
+  # PROD
+  backend:
+    build: ./flask
+    networks: ["netprod"]
+    expose: ["5000"]
+    volumes:
+      - "./flask:/app"
+      - "./storage:/storage"
+    command: gunicorn -w 4 -b 0.0.0.0:5000 app:app
+    profiles: ["prod"]
+    restart: "unless-stopped"
+
+  tts:
+    build: ./piper
+    networks: ["netprod"]
+    expose: ["5000"]
+    command: "python3 -m piper.http_server -m en_US-lessac-medium"
+    profiles: ["prod"]
+    restart: "unless-stopped"
+
+  proxy:
+    image: nginx:alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/prod.conf:/etc/nginx/conf.d/default.conf:ro
+    networks: ["netprod"]
+    profiles: ["prod"]
+    restart: "unless-stopped"
+
+networks:
+  netdev:
+    driver: bridge
+  netprod:
+    driver: bridge

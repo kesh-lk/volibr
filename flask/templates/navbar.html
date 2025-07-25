@@ -1,0 +1,23 @@
+<header id="navbar">
+  <div class="logo">📚 VoLibr</div>
+
+  {% if main %}
+  <div id="search-container">
+    <input type="text" id="search-value" placeholder="Search books...">
+    <select id="search-genre">
+      <option value="">All Genres</option>
+    </select>
+  </div>
+  {% endif %}
+
+  <div class="actions">
+    {% if main %}
+    <button class="nav-icon icon-button" id="uploadBookBtn" title="Upload Book">📤</button>
+    <input type="file" id="fileInput" accept="application/pdf" style="display:none" />
+    {% endif %}
+    <button class="nav-icon icon-button" id="theme-toggle" title="Toggle Theme">🌓</button>
+    <button class="nav-icon icon-button" id="userProfileBtn" title="User Account">👤</button>
+    <button class="nav-icon icon-button" onclick="window.location.href='/logout'" title="Logout">📲</button>
+  </div>
+</header>
+

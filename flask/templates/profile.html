@@ -1,0 +1,33 @@
+<div class="tab-container">
+  <div class="tab-buttons">
+    {% if user %}
+    <button class="tab-btn" data-tab="details-tab">Details</button>
+    {% endif %}
+    <button class="tab-btn" data-tab="password-tab">Password</button>
+  </div>
+  <div class="tab-content">
+    {% if user %}
+    <div class="tab-panel" id="details-tab">
+      
+      <form id="details-form" method="post" action="/profile">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="details-name" name="name" value="" disabled required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="details-email" name="email" value="" disabled required>
+        </div>
+
+        <button id="details-submit" class="form-button" disabled>Update</button>
+      </form>
+
+    </div>
+    {% endif %}
+    
+    <div class="tab-panel" id="password-tab">
+      {% include "password.html" %} 
+    </div>
+  </div>
+</div>

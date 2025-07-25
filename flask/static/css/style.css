@@ -1,0 +1,35 @@
+:root {
+    --bg: #ffffff;
+    --fg: #1e1e1e;
+    --primary: #0066cc;
+    --card-bg: #f9f9f9;
+    --border: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    --bg: #1e1e1e;
+    --fg: #eeeeee;
+    --primary: #66b2ff;
+    --card-bg: #2a2a2a;
+    --border: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+

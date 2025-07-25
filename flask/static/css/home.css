@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.card-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+}
+

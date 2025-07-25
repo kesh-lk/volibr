@@ -1,0 +1,12 @@
+/storage/
+
+*.pyc
+*.log
+*.pem
+*.pdf
+*.wav
+*.sql
+
+pass.json
+core
+flask_session

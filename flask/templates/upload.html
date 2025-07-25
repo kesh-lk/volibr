@@ -1,0 +1,41 @@
+<div class="upload-container">
+  <canvas id="pdf-canvas"></canvas>
+
+  <div class="form-container">
+    <form id="book-form">
+      <div class="form-group">
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" value="" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author*</label>
+        <input type="text" id="author" name="author" value="" required>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="year" name="year" value="">
+      </div>
+
+      <div class="form-group-2">
+        <label for="genre">Genre</label>
+        <div class="multi-select-container" id="multi-select">
+          <div class="selected-tags" id="selected-tags"></div>
+          <div class="dropdown-toggle" id="dropdown-toggle"></div>
+          <div class="dropdown" id="dropdown-options"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="visibility">Private</label>
+        <label class="switch">
+          <input type="checkbox" name="is-private" id="toggle-switch">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <button type="submit" class="form-button">Add Book</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#search-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#search-value {
+    flex-grow: 1;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    max-width: 400px;
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+#search-container input,
+#search-container select {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+

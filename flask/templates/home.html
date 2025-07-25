@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoLibr: Self-Hosted Library</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+
+</head>
+<body>
+
+    <div class="popup" id="upload-window">
+      <button class="popup-close icon-button" onclick="closePopup()">
+        <i class="fas fa-times"></i>
+      </button>
+      {% include "upload.html" %}
+    </div>
+
+    <div class="popup" id="profile-window">
+      <button class="popup-close icon-button" onclick="closePopup()">
+        <i class="fas fa-times"></i>
+      </button>
+      {% set user=True %}
+      {% include "profile.html" %}
+    </div>
+
+    {% set main=True %}
+    {% include "navbar.html" %}
+    
+    <div class="main-container">
+        <main class="card-grid"></main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        loadBooks();
+      });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/card.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/password.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+#users-container {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 1rem;
+}
+
+#users-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+#users-container th, #users-container td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+#users-container th {
+  background-color: var(--bg);
+  font-weight: bold;
+}
+
+#users-container tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 600px) {
+  #users-container table, 
+  #users-container tbody, 
+  #users-container th, 
+  #users-container td, 
+  #users-container tr {
+    display: block;
+  }
+
+  #users-container thead {
+    display: none;
+  }
+
+  #users-container td {
+    padding: 0.75rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #users-container td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+

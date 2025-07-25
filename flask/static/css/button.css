@@ -1,0 +1,64 @@
+.icon-button {
+  padding: 4px 8px;
+  background-color: transparent;
+  color: var(--fg);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: var(--bg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: var(--fg);
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: var(--primary);
+  border: none;
+  color: var(--bg);
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  opacity: 0.9;
+}
+
+.text-button {
+  padding: 4px 8px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.text-button:hover {
+  background: var(--bg);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: var(--fg);
+}
+
+.page-button {
+  padding: 4px 8px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-button:hover {
+  background: rgba(255,255,255,0.5);
+  color: black;
+}
