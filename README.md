@@ -3,6 +3,89 @@ Volibr is a self-hosted, privacy-respecting platform that lets users upload and 
 
 ---
 
+## 🚀 Features
+
+- 📚 Upload and organize your personal books (PDF*)
+- 🗣️ AI text-to-speech narration using local TTS engines
+- 🎧 Streamlined audiobook-style playback with resume support
+- 🌐 Clean web-based interface
+- 🔐 100% local and self-hosted – no cloud dependency
+
+> \* Scanned PDF files are not supported yet. Even in the future when it does get supported, you should own the material or have permission to consume the material.
+
+---
+
+## ⚙️ Tech Stack
+
+- Python (Flask)
+- TTS Engine: Piper
+- SQLite
+- NGINX
+
+---
+
+## ⚙️ Getting Started
+
+### 🧑‍💻 For Developers
+
+1. **Install Docker & Git**
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/kesh-lk/volibr.git
+   cd volibr
+   ```
+3. Start the development environment:
+   ```bash
+   docker compose --profile dev up
+   ```
+
+> Use this profile if you’re contributing code, debugging, or customizing.
+
+---
+
+### 📦 For Users / Consumers
+
+1. **Install Docker**
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/kesh-lk/volibr.git
+   cd volibr
+   ```
+3. Start the production server:
+   ```bash
+   docker compose --profile prod up
+   ```
+
+> This launches the app with optimal settings for personal use.
+
+---
+
+### 🌐 Login & Usage
+
+Once the app is running:
+
+1. Open your browser and go to:  
+   👉 `http://localhost:8080`
+2. Login to the admin panel using:  
+   - **Email**: `admin`  
+   - **Password**: `admin`
+3. Inside the admin panel:
+   - Add **member accounts** by entering a name and email.
+4. For members logging in:
+   - On first login, enter the registered **email** and leave the **password blank**.
+   - The system will prompt to set a new password.
+5. Once logged in as a member:
+   - Click the **upload icon** in the navbar to upload books you **own or have permission to use**.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome for personal-use features and bug fixes.  
+Commercial enhancements or integrations will not be accepted.
+
+---
+
 ## ❗️Disclaimer & Legal Notice
 
 **Volibr is strictly for non-commercial, personal use only.**
@@ -27,3 +110,5 @@ See [`LICENSE`](./LICENSE) for full terms.
 For commercial licensing inquiries, contact: `your@email.com`.
 
 ---
+
+**Volibr** – Your voice-powered personal reading companion.
